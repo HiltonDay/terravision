@@ -1,0 +1,2708 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Free, open-source cloud architecture diagrams in both directions. Describe a design to your AI assistant and get an AWS, Azure or GCP diagram and its Terraform, or draw what your Terraform deploys.">
+      
+      
+      
+        <link rel="canonical" href="https://patrickchugh.github.io/terravision/mcp-server/">
+      
+      
+        <link rel="prev" href="../cicd-integration/">
+      
+      
+        <link rel="next" href="../cloud-architecture-diagram-generator/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/logo/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+    
+    
+      
+        <title>MCP Server - TerraVision</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mcp-server" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="TerraVision" class="md-header__button md-logo" aria-label="TerraVision" data-md-component="logo">
+      
+  <img src="../assets/logo/terravision-icon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TerraVision
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MCP Server
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/patrickchugh/terravision" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    patrickchugh/terravision
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../gallery/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Gallery
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../ai-assistants/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Use with AI assistants
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../draw-any-environment/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Prod without prod access
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../graph-format/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Graph Format (JSON input)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../node-types/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Node types
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../installation/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../annotations/" class="md-tabs__link">
+          
+  
+  
+  Features
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../cloud-architecture-diagram-generator/" class="md-tabs__link">
+          
+  
+  
+  Diagram generators
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../faq/" class="md-tabs__link">
+          
+  
+  
+  Help
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../CONTRIBUTING/" class="md-tabs__link">
+          
+  
+  
+  Contributing
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../demo-aws.html" class="md-tabs__link">
+          
+  
+  
+  Live Demos
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="TerraVision" class="md-nav__button md-logo" aria-label="TerraVision" data-md-component="logo">
+      
+  <img src="../assets/logo/terravision-icon.svg" alt="logo">
+
+    </a>
+    TerraVision
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/patrickchugh/terravision" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    patrickchugh/terravision
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gallery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gallery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-assistants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Use with AI assistants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../draw-any-environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prod without prod access
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graph-format/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graph Format (JSON input)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../node-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Node types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7">
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../usage-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Features
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../annotations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Annotations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cicd-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI/CD Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Server
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-your-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configure your client
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configure your client">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#other-mcp-clients" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other MCP clients
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-server-from-the-docker-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running the server from the Docker image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-tools-fail-with-not-found-on-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        If tools fail with "not found on PATH"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram_guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        diagram_guide
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#render_graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        render_graph
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate_architecture_graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        generate_architecture_graph
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate_diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        generate_diagram
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate_interactive_html" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        generate_interactive_html
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open_diagram_file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        open_diagram_file
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram_file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        diagram_file
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-diagram-view-mcp-apps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The diagram view (MCP Apps)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#things-worth-knowing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Things worth knowing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Credentials
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trust-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trust boundary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://patrickchugh.github.io/terravision/llms.txt" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    llms.txt for AI agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9">
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diagram generators
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Diagram generators
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloud-architecture-diagram-generator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud architecture diagram generator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-cloud-architecture-diagram-generator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI diagram generator (description to diagram)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../diagram-to-terraform/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diagram to Terraform
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws-architecture-diagram-generator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS diagram generator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../azure-architecture-diagram-generator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Azure diagram generator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gcp-architecture-diagram-generator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Google Cloud diagram generator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../terraform-diagram-generator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terraform diagram generator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../alternatives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compared with other tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10">
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Help
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Help
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11">
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Contributing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CONTRIBUTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SECURITY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resource-handler-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resource Handler Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../constitution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Constitution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12">
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Live Demos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Live Demos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../demo-aws.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS Demo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../demo-azure.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Azure Demo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../demo-gcp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GCP Demo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configure-your-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configure your client
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configure your client">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#other-mcp-clients" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Other MCP clients
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running-the-server-from-the-docker-image" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Running the server from the Docker image
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-tools-fail-with-not-found-on-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        If tools fail with "not found on PATH"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tools
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram_guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        diagram_guide
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#render_graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        render_graph
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate_architecture_graph" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        generate_architecture_graph
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate_diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        generate_diagram
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate_interactive_html" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        generate_interactive_html
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open_diagram_file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        open_diagram_file
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram_file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        diagram_file
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-diagram-view-mcp-apps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The diagram view (MCP Apps)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common parameters
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#things-worth-knowing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Things worth knowing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Credentials
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trust-boundary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trust boundary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/patrickchugh/terravision/edit/main/docs/mcp-server.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+
+
+<h1 id="mcp-server">MCP Server<a class="headerlink" href="#mcp-server" title="Permanent link">¶</a></h1>
+<p>TerraVision can run as a <a href="https://modelcontextprotocol.io">Model Context Protocol</a> server, letting AI
+agents generate architecture diagrams from Terraform code themselves.</p>
+<p>The useful property here is accuracy. An agent asked to draw an architecture will otherwise invent
+the diagram from whatever it can infer. Through this server it gets a diagram derived from
+<code>terraform plan</code> — the same output <code>terravision draw</code> produces, with conditionals, <code>count</code>,
+<code>for_each</code> and module expansion already resolved.</p>
+<h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">¶</a></h2>
+<p>The MCP server is an optional extra, so the default install is unchanged.</p>
+<p><strong>pipx</strong> (the recommended way to install TerraVision):</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># New install</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>pipx<span class="w"> </span>install<span class="w"> </span><span class="s2">"terravision[mcp]"</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Already have TerraVision? Add the dependency to its environment</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>pipx<span class="w"> </span>inject<span class="w"> </span>terravision<span class="w"> </span>mcp
+</span></code></pre></div>
+<p><code>pip install</code> will not work inside a pipx-managed environment — use <code>pipx inject</code>.</p>
+<p><strong>uv</strong>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># New install, or add the extra to an existing uv install</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>uv<span class="w"> </span>tool<span class="w"> </span>install<span class="w"> </span><span class="s2">"terravision[mcp]"</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Or run it without installing, which is how the Claude Code, Codex and</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="c1"># Gemini CLI plugins and the MCP Registry entry launch it</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>uvx<span class="w"> </span>--from<span class="w"> </span><span class="s2">"terravision[mcp]"</span><span class="w"> </span>terravision<span class="w"> </span>mcp
+</span></code></pre></div>
+<p><strong>pip</strong>, if you are already in a virtualenv:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">"terravision[mcp]"</span>
+</span></code></pre></div>
+<p><strong>Poetry</strong>, for development:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>poetry<span class="w"> </span>install<span class="w"> </span>--with<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--extras<span class="w"> </span>mcp
+</span></code></pre></div>
+<p>Check it worked:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>terravision<span class="w"> </span>mcp<span class="w"> </span>--help
+</span></code></pre></div>
+<h2 id="configure-your-client">Configure your client<a class="headerlink" href="#configure-your-client" title="Permanent link">¶</a></h2>
+<p>The server speaks stdio: your client launches it as a local subprocess. It listens on no port.</p>
+<p><strong>Claude Code</strong></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>claude<span class="w"> </span>mcp<span class="w"> </span>add<span class="w"> </span>terravision<span class="w"> </span>--<span class="w"> </span>terravision<span class="w"> </span>mcp
+</span></code></pre></div>
+<p><strong>Claude Desktop</strong> — install the extension: download <code>terravision-&lt;version&gt;.mcpb</code> from the
+<a href="https://github.com/patrickchugh/terravision/releases/latest">latest release</a> and double-click it,
+or drag it into Claude Desktop's <strong>Settings → Extensions</strong>. It asks where to save diagrams (by
+default <code>Documents/TerraVision</code>) and installs TerraVision itself; your computer needs Graphviz and
+Git, and on Linux also <a href="https://docs.astral.sh/uv/getting-started/installation/">uv</a>, which Claude
+Desktop uses there to run the extension.</p>
+<p>If extensions are turned off on your machine, add the server by hand instead (<strong>Settings →
+Developer → Edit Config</strong>). On macOS, give the full path to <code>uvx</code> (from <code>which uvx</code>), because
+Claude Desktop does not see your terminal's PATH:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="nt">"mcpServers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">    </span><span class="nt">"terravision"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">      </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uvx"</span><span class="p">,</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">      </span><span class="nt">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"--from"</span><span class="p">,</span><span class="w"> </span><span class="s2">"terravision[mcp]"</span><span class="p">,</span><span class="w"> </span><span class="s2">"terravision"</span><span class="p">,</span><span class="w"> </span><span class="s2">"mcp"</span><span class="p">,</span><span class="w"> </span><span class="s2">"--output-dir"</span><span class="p">,</span><span class="w"> </span><span class="s2">"/path/for/diagrams"</span><span class="p">]</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>Cursor</strong> — add to the MCP config file:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">"mcpServers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="nt">"terravision"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">      </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"terravision"</span><span class="p">,</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">      </span><span class="nt">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"mcp"</span><span class="p">,</span><span class="w"> </span><span class="s2">"--output-dir"</span><span class="p">,</span><span class="w"> </span><span class="s2">"/path/for/generated/diagrams"</span><span class="p">]</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><code>--output-dir</code> sets where generated files are written. It defaults to the directory the server was
+started in.</p>
+<h3 id="other-mcp-clients">Other MCP clients<a class="headerlink" href="#other-mcp-clients" title="Permanent link">¶</a></h3>
+<p>The server implements the protocol rather than targeting any one client, so anything that speaks
+MCP over stdio can use it — Codex CLI, GitHub Copilot in VS Code, Cursor, Zed, Claude Desktop and
+others. Protocol version is negotiated with the client and has been verified against <code>2024-11-05</code>
+(the original spec), <code>2025-03-26</code> and <code>2025-06-18</code>; an unrecognised version negotiates to the
+server's newest. Every result starts with a <code>text</code> content block, the one response field present in
+every version of the spec, so no client depends on newer optional fields. Diagram results add a
+preview image and structured content for clients that use them.</p>
+<p>What differs between clients is only where the configuration lives and what it is called. They all
+need the same three things:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>command</td>
+<td><code>terravision</code> (or an absolute path to it)</td>
+</tr>
+<tr>
+<td>args</td>
+<td><code>["mcp"]</code>, plus <code>--output-dir &lt;dir&gt;</code> if you want to control where files land</td>
+</tr>
+<tr>
+<td>env</td>
+<td><code>PATH</code> including Graphviz and, for the <code>source</code> tools, Terraform — see below</td>
+</tr>
+</tbody>
+</table>
+<p>Most clients use a JSON block of this shape, under a key such as <code>mcpServers</code> or <code>servers</code>:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="p">{</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="nt">"mcpServers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="nt">"terravision"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">      </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"terravision"</span><span class="p">,</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">      </span><span class="nt">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"mcp"</span><span class="p">,</span><span class="w"> </span><span class="s2">"--output-dir"</span><span class="p">,</span><span class="w"> </span><span class="s2">"./diagrams"</span><span class="p">],</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">      </span><span class="nt">"env"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"PATH"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/usr/local/bin:/usr/bin:/bin"</span><span class="w"> </span><span class="p">}</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Check your client's own documentation for the file location and exact key name, since those change
+more often than the protocol does.</p>
+<h3 id="running-the-server-from-the-docker-image">Running the server from the Docker image<a class="headerlink" href="#running-the-server-from-the-docker-image" title="Permanent link">¶</a></h3>
+<p>The <a href="../installation/">Docker image</a> includes the MCP server with Graphviz, Git and Terraform, so a
+client can run it with nothing else installed. Keep <code>-i</code> (the protocol runs over stdin) and mount the
+folder where diagrams should land:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">{</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">"mcpServers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="nt">"terravision"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">      </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"docker"</span><span class="p">,</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">      </span><span class="nt">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"run"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-i"</span><span class="p">,</span><span class="w"> </span><span class="s2">"--rm"</span><span class="p">,</span><span class="w"> </span><span class="s2">"-v"</span><span class="p">,</span><span class="w"> </span><span class="s2">"/path/to/diagrams:/project"</span><span class="p">,</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">               </span><span class="s2">"patrickchugh/terravision"</span><span class="p">,</span><span class="w"> </span><span class="s2">"mcp"</span><span class="p">,</span><span class="w"> </span><span class="s2">"--output-dir"</span><span class="p">,</span><span class="w"> </span><span class="s2">"/project"</span><span class="p">]</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Paths in results are paths inside the container (<code>/project/...</code>), and <code>open_diagram_file</code> cannot
+open files there, since a container has no desktop: open them from the mounted folder instead. To
+draw Terraform code, mount it too and pass its container path as <code>source</code>.</p>
+<h3 id="if-tools-fail-with-not-found-on-path">If tools fail with "not found on PATH"<a class="headerlink" href="#if-tools-fail-with-not-found-on-path" title="Permanent link">¶</a></h3>
+<p>TerraVision needs <code>terraform</code> (or <code>tofu</code>), <code>dot</code>, <code>gvpr</code> and <code>git</code> on PATH. The MCP server is
+spawned as a child process and inherits its environment from the client, which is a common source
+of trouble:</p>
+<ul>
+<li>A client launched before PATH last changed passes down a stale copy. Restarting the client fixes
+  it.</li>
+<li>GUI clients on macOS and Windows often don't inherit your shell's PATH at all, so tools installed
+  via <code>brew</code>, <code>asdf</code> or an unzipped download may be invisible even though they work in a terminal.</li>
+</ul>
+<p>The reliable fix is to pin PATH at registration rather than rely on inheritance:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>claude<span class="w"> </span>mcp<span class="w"> </span>add<span class="w"> </span>terravision<span class="w"> </span>-e<span class="w"> </span><span class="s2">"PATH=</span><span class="nv">$PATH</span><span class="s2">"</span><span class="w"> </span>--<span class="w"> </span>terravision<span class="w"> </span>mcp
+</span></code></pre></div>
+<p>Or in a client config file:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">{</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="nt">"mcpServers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="nt">"terravision"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">      </span><span class="nt">"command"</span><span class="p">:</span><span class="w"> </span><span class="s2">"terravision"</span><span class="p">,</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">      </span><span class="nt">"args"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"mcp"</span><span class="p">],</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">      </span><span class="nt">"env"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">        </span><span class="nt">"PATH"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/usr/local/bin:/usr/bin:/bin:/opt/homebrew/bin"</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>On Windows, include the directories holding <code>terraform.exe</code> and Graphviz's <code>bin</code> (typically
+<code>C:\Program Files\Graphviz\bin</code>).</p>
+<h2 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">¶</a></h2>
+<p><code>render_graph</code> takes a graph inline and never runs Terraform. The other three tools mirror
+TerraVision commands and take <code>source</code>, which may be a Terraform directory, a Git URL, a
+<code>.tvg.json</code> graph file or a TerraVision <code>tfdata.json</code> replay file.</p>
+<h3 id="diagram_guide"><code>diagram_guide</code><a class="headerlink" href="#diagram_guide" title="Permanent link">¶</a></h3>
+<p>Returns what an agent needs to write a good graph for one provider (<code>aws</code>, <code>azure</code> or <code>gcp</code>): the
+<a href="../graph-format/">Graph Format</a> rules, worked example graphs and every node type for that provider.
+It gives apps that have the MCP server but not the <a href="https://github.com/patrickchugh/terravision/tree/main/skills/terravision-cloud-diagrams">agent skill</a>,
+such as Claude Desktop, the same guidance, so their diagrams use the specific icons (Fargate, RDS by
+engine) and the level of detail of the examples: availability zones, public and private subnets,
+the internet path and shared services. The server's instructions tell agents to call it once before
+<code>render_graph</code>. It also reports in <code>setup</code> whether Graphviz, Git and Terraform (or OpenTofu) are
+installed, with the install commands for anything missing, so the agent can tell the user before
+drafting a diagram. Claude Desktop's "requirements met" check covers only the operating system
+and Python, not these programs.</p>
+<p>It also lists a library of patterns for that provider (EKS, ECS, Step Functions, SageMaker, Glue,
+GKE, AKS and others), each TerraVision's own output for real Terraform with the addresses written
+plainly. Pass <code>pattern: "&lt;name&gt;"</code> to fetch one. <code>scripts/gen_example_patterns.py</code> rebuilds the
+library from <code>tests/json</code> and refuses any pattern that would draw differently from the original.</p>
+<p>And it lists the <a href="../gallery/">gallery</a> designs for that provider, 19 per cloud, each with a
+one-line description. Pass <code>example: "&lt;name&gt;"</code> to fetch one: its graph, plus its title, CIDR
+ranges, arrow labels and numbered flows as <code>render_graph</code> arguments (<code>render_graph_args</code>), so an
+agent can start from the closest design and keep its level of detail.
+<code>scripts/sync_skill_gallery.py</code>, run by <code>scripts/render_examples.py</code>, copies the gallery into the
+skill's <code>examples/gallery/</code> folder that this reads.</p>
+<h3 id="render_graph"><code>render_graph</code><a class="headerlink" href="#render_graph" title="Permanent link">¶</a></h3>
+<p>Renders a diagram from a graph passed directly as JSON, so an agent never has to write a file.
+<code>graph</code> maps each node address (<code>&lt;terraform_resource_type&gt;.&lt;name&gt;</code>) to the list of addresses it
+connects to or contains; the <a href="../graph-format/">Graph Format</a> page has the rules and the
+<a href="../node-types/">node types</a> page the icons. The graph is saved as <code>&lt;outfile&gt;.tvg.json</code> in the
+output directory and rendered exactly as <code>terravision draw --source &lt;that file&gt;</code> would, so the two
+paths cannot drift. Returns the same result as <code>generate_diagram</code> plus <code>graph_path</code>, <code>node_count</code>
+and <code>edge_count</code>.</p>
+<p>When parts of the graph will not draw as they read, the result also has <code>warnings</code>: an unknown type
+(with the closest supported types suggested), an arrow to a container or a shared service, a node
+listed in two boxes. They come from the skill's validator, so the command-line check gives the same
+advice. The diagram is still drawn, and the view lists the warnings under it.</p>
+<p>Every diagram result has <code>display</code>, which tells the assistant whether the app is already showing
+the diagram. In an app with the <a href="#the-diagram-view-mcp-apps">diagram view</a> it says not to open the
+image in a separate viewer as well; in an app without the view it says to show the preview inline
+or open the PNG with <code>open_diagram_file</code>.</p>
+<p>Takes <code>format</code>, <code>outfile</code>, <code>fontsize</code>, <code>iconsize</code>, <code>title</code>, <code>preview</code> and <code>flows</code>: numbered steps drawn
+as badges with a legend (rule 10 of the <a href="../graph-format/">graph format</a>). With <code>flows</code>, <code>files</code> also
+has <code>annotations</code>, a YAML file holding the title and flows, so
+<code>terravision draw --source &lt;name&gt;.tvg.json --annotate &lt;name&gt;.annotations.yml</code> draws the same
+diagram, and a step that draws no badge (a missing node or arrow, a container) is listed in
+<code>warnings</code>. <code>edge_labels</code> puts a few words on arrows the graph already has, keyed by arrow:
+<code>{"aws_ecs_fargate.app -&gt; aws_rds_sqlserver.db": "Reads orders"}</code> (rule 11); a label never adds an
+arrow, and one that is not drawn is listed in <code>warnings</code>. Labels are saved in the same
+<code>.annotations.yml</code>, under <code>connect</code>. <code>attributes</code> sets attributes on nodes the graph already has,
+as an annotation file's <code>update</code> section does; use it to give networks and subnets realistic CIDR
+ranges, shown in their box labels: <code>{"aws_subnet.public~1": {"cidr_block": "10.0.1.0/24"}}</code>. A
+<code>label</code> attribute replaces a node's label or a box's caption. An attribute never adds a node; one for a node the graph does not have is listed in <code>warnings</code>.
+Attributes are saved in the same <code>.annotations.yml</code>, under <code>update</code>. Needs only Graphviz and Git: no
+Terraform, no credentials, no <code>source</code>. A graph that mixes providers (<code>aws_*</code> with <code>azurerm_*</code> or
+<code>google_*</code>) is rejected; draw one diagram per provider.</p>
+<h3 id="generate_architecture_graph"><code>generate_architecture_graph</code><a class="headerlink" href="#generate_architecture_graph" title="Permanent link">¶</a></h3>
+<p>Equivalent to <code>terravision graphdata</code>. Returns the architecture as structured data — the tool to use
+for reasoning about a stack rather than looking at it.</p>
+<p>Returns <code>{graphdict, node_count, edge_count, provider}</code>, where <code>graphdict</code> maps each Terraform
+resource address to the addresses it connects to or contains. With <code>services_only: true</code> it instead
+returns <code>{services, count, provider}</code> — a much smaller payload, worth calling first when you only
+need to know what a stack is built from.</p>
+<h3 id="generate_diagram"><code>generate_diagram</code><a class="headerlink" href="#generate_diagram" title="Permanent link">¶</a></h3>
+<p>Equivalent to <code>terravision draw</code>, but always saves the full set: the requested format plus a PNG, an
+SVG, an editable draw.io file and the graph as <code>.tvg.json</code> (exported from Terraform too, so it can be
+changed and rendered again with <code>render_graph</code>). Returns <code>{path, format, provider, title, files}</code>,
+where <code>files</code> maps <code>png</code>, <code>svg</code>, <code>drawio</code> and <code>graph</code> to paths and <code>path</code> is the requested format,
+followed by a <strong>preview image</strong> of the diagram (at most 1568 pixels on the long edge, usually well
+under 300 KB) so the model can check what it drew. <code>preview: false</code> leaves the image out.</p>
+<p><code>format</code> accepts anything Graphviz supports (<code>png</code>, <code>svg</code>, <code>pdf</code>, <code>dot</code>, …) plus <code>drawio</code> for a file
+editable in draw.io, Lucidchart or any mxGraph editor.</p>
+<h3 id="generate_interactive_html"><code>generate_interactive_html</code><a class="headerlink" href="#generate_interactive_html" title="Permanent link">¶</a></h3>
+<p>Equivalent to <code>terravision visualise</code>. Produces a self-contained HTML page with clickable,
+searchable nodes and all resource metadata embedded, so it opens offline. Returns <code>{path, provider}</code>.
+It refuses a graph file (<code>.tvg.json</code>), which has no resource metadata to show; use <code>render_graph</code>
+or <code>generate_diagram</code> for those, which also write a self-contained SVG that works in any browser. A <code>tfdata.json</code> replay works.</p>
+<h3 id="open_diagram_file"><code>open_diagram_file</code><a class="headerlink" href="#open_diagram_file" title="Permanent link">¶</a></h3>
+<p>Opens a file from a diagram result in the user's default app (the image viewer for <code>.png</code>, draw.io
+for <code>.drawio</code>), or with <code>reveal: true</code> shows it in its folder. It works because the server runs on
+the user's own computer. Only files this server rendered can be opened; any other path is refused.</p>
+<h3 id="diagram_file"><code>diagram_file</code><a class="headerlink" href="#diagram_file" title="Permanent link">¶</a></h3>
+<p>Returns a rendered file's contents to the diagram view. It is marked as app-only
+(<code>_meta.ui.visibility: ["app"]</code>) and, like <code>open_diagram_file</code>, refuses any file the server did not
+render.</p>
+<h3 id="the-diagram-view-mcp-apps">The diagram view (MCP Apps)<a class="headerlink" href="#the-diagram-view-mcp-apps" title="Permanent link">¶</a></h3>
+<p><code>render_graph</code> and <code>generate_diagram</code> link to an <a href="https://modelcontextprotocol.io/extensions/apps/overview">MCP Apps</a>
+view, <code>ui://terravision/diagram-&lt;hash&gt;.html</code> (the hash changes whenever the view does, because
+hosts cache views by address). In apps that support MCP Apps, such as Claude Desktop, VS
+Code with GitHub Copilot and Cursor, the diagram appears in the chat as soon as it is drawn, with
+zoom and pan, and four buttons: <strong>Open image</strong> (in your image viewer), <strong>Edit in draw.io</strong> (the draw.io
+app, or draw.io in your browser when the app is not installed), <strong>Show in folder</strong>, and <strong>Source</strong>, which shows and copies the graph JSON and, once flows or edge labels are
+added, the annotations YAML. Apps without MCP Apps still get the preview image and the file paths;
+apps whose views cannot call tools show the diagram without buttons, with the file paths listed.</p>
+<p>The view is a single self-contained HTML page: it loads nothing from the internet and needs no
+permissions beyond writing to the clipboard.</p>
+<h3 id="common-parameters">Common parameters<a class="headerlink" href="#common-parameters" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>varfile</code></td>
+<td><code>.tfvars</code> files. Different var files against the same code give genuinely different architectures</td>
+</tr>
+<tr>
+<td><code>workspace</code></td>
+<td>Terraform workspace to select</td>
+</tr>
+<tr>
+<td><code>planfile</code> / <code>graphfile</code></td>
+<td>Consume Terraform output generated elsewhere; see below</td>
+</tr>
+<tr>
+<td><code>simplified</code></td>
+<td>Drop networking containers and show only services</td>
+</tr>
+<tr>
+<td><code>annotate</code></td>
+<td>Path to a <code>terravision.yml</code> <a href="../annotations/">annotation file</a></td>
+</tr>
+<tr>
+<td><code>upgrade</code></td>
+<td>Run <code>terraform init -upgrade</code> to refresh modules</td>
+</tr>
+</tbody>
+</table>
+<p><code>generate_diagram</code> and <code>generate_interactive_html</code> also take <code>outfile</code>, <code>use_tf_names</code>,
+<code>use_resource_names</code>, <code>fontsize</code>, <code>iconsize</code> and <code>title</code> (overrides a title in the annotation file);
+<code>generate_diagram</code> also takes <code>preview</code>, <code>flows</code> and <code>edge_labels</code>, which name nodes as they appear in the <code>.tvg.json</code>
+of an earlier render and replace any flow of the same name from the annotation file.</p>
+<h2 id="things-worth-knowing">Things worth knowing<a class="headerlink" href="#things-worth-knowing" title="Permanent link">¶</a></h2>
+<p><strong>Tools return paths, not file contents.</strong> This matches the CLI. To inspect a generated <code>.drawio</code> or
+<code>.svg</code>, read the returned path.</p>
+<p><strong>Calls can take minutes.</strong> Every <code>source</code> tool runs <code>terraform init</code> and <code>terraform plan</code> against the
+source unless you supply <code>planfile</code>/<code>graphfile</code> or a JSON source; <code>render_graph</code> never does. Calls are
+executed one at a time.</p>
+<p><strong>A <code>.tvg.json</code> graph or <code>tfdata.json</code> source skips Terraform entirely</strong> and returns in seconds.
+Export a graph with <code>terravision graphdata</code>, or a replay file with <code>terravision draw --source &lt;path&gt; --debug</code>.
+Useful for iterating without repeated plan runs.</p>
+<p><strong>AI annotation is not exposed.</strong> <code>--ai-annotate</code> has TerraVision call out to Bedrock or Ollama.
+Doing that from a server that is itself being driven by a model is confused layering, and it would
+pull credential handling into a component whose main property is not needing any. Run the CLI
+directly if you want it.</p>
+<h2 id="credentials">Credentials<a class="headerlink" href="#credentials" title="Permanent link">¶</a></h2>
+<p>TerraVision needs no cloud credentials of its own, and the MCP server changes nothing about that.</p>
+<p>When <code>source</code> is raw Terraform, TerraVision invokes Terraform, and <em>Terraform</em> authenticates to your
+cloud provider to produce a plan. To avoid that entirely, pass <code>planfile</code> and <code>graphfile</code> pointing at
+output generated upstream — typically by a CI pipeline that already runs <code>terraform plan</code>:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>terraform<span class="w"> </span>plan<span class="w"> </span>-out<span class="o">=</span>tfplan.bin
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>terraform<span class="w"> </span>show<span class="w"> </span>-json<span class="w"> </span>tfplan.bin<span class="w"> </span>&gt;<span class="w"> </span>plan.json
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>terraform<span class="w"> </span>graph<span class="w"> </span>&gt;<span class="w"> </span>graph.dot
+</span></code></pre></div>
+<p>The agent then calls a tool with <code>planfile: "plan.json"</code>, <code>graphfile: "graph.dot"</code> and the original
+<code>source</code> path. No Terraform run, no credentials.</p>
+<h2 id="trust-boundary">Trust boundary<a class="headerlink" href="#trust-boundary" title="Permanent link">¶</a></h2>
+<p>Worth being explicit, since the arguments come from a model:</p>
+<ul>
+<li><strong>Reads</strong> are unrestricted. A tool can read any Terraform the user running the server can read —
+  the same reach as the CLI.</li>
+<li><strong>Writes</strong> are confined. <code>outfile</code> must be a plain filename; separators and <code>..</code> are rejected, so
+  generated files always land in <code>--output-dir</code>.</li>
+<li><strong>Terraform still executes.</strong> <code>terraform init</code> downloads modules and providers from the sources the
+  code names, and <code>plan</code> reaches your cloud provider. Point the server at code you trust, exactly as
+  you would with the CLI. The <code>planfile</code>/<code>graphfile</code> path avoids this.</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">¶</a></h2>
+<p><strong><code>The MCP server needs the optional 'mcp' dependency</code></strong> — run <code>pipx inject terravision mcp</code> for a
+pipx install, or <code>pip install "terravision[mcp]"</code> otherwise. <code>pip install</code> on its own does nothing
+useful inside a pipx environment, which is the usual reason this message persists after a
+reinstall attempt.</p>
+<p><strong>The client reports the server failed to start</strong> — run <code>terravision mcp</code> by hand. It should sit
+silently waiting for JSON-RPC on stdin; anything printed to your terminal is stderr and safe.
+Ctrl-C to exit. If it exits immediately, the error is on stderr.</p>
+<p><strong>A tool call fails but the server stays up</strong> — that is intended. Errors are reported per call. The
+underlying message goes to stderr, which your client usually surfaces as server logs.</p>
+<p><strong>"TerraVision cannot run: … not found on PATH"</strong> — see
+<a href="#if-tools-fail-with-not-found-on-path">If tools fail with "not found on PATH"</a> above. Note that an
+agent investigating this on its own will often run <code>where terraform</code> in a shell that has the <em>same</em>
+stale environment, conclude the tool is not installed, and go looking for a workaround. Check the
+binary's real location before believing that.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © Patrick Chugh
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/patrickchugh/terravision" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://youtu.be/BbXWR-v_Dl0" target="_blank" rel="noopener" title="youtu.be" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M549.7 124.1c-6.2-23.7-24.8-42.3-48.3-48.6C458.9 64 288.1 64 288.1 64S117.3 64 74.7 75.5c-23.5 6.3-42 24.9-48.3 48.6C15 167 15 256.4 15 256.4s0 89.4 11.4 132.3c6.3 23.6 24.8 41.5 48.3 47.8C117.3 448 288.1 448 288.1 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zM232.2 337.6V175.2l142.7 81.2z"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://pypi.org/project/terravision/" target="_blank" rel="noopener" title="pypi.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6M286.2 444.7a20.4 20.4 0 1 1 0-40.7 20.4 20.4 0 1 1 0 40.7M167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4m-6.6-183.4a20.4 20.4 0 1 1 0 40.8 20.4 20.4 0 1 1 0-40.8"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.instant", "navigation.tracking", "toc.follow", "content.code.copy", "content.code.annotate", "content.action.edit", "search.suggest", "search.highlight", "search.share"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>

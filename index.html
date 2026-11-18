@@ -1,0 +1,2649 @@
+<!DOCTYPE html><html lang="en" class="no-js"><head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Free, open-source cloud architecture diagrams in both directions. Describe a design to your AI assistant and get an AWS, Azure or GCP diagram and its Terraform, or draw what your Terraform deploys.">
+      
+      
+      
+        <link rel="canonical" href="https://patrickchugh.github.io/terravision/">
+      
+      
+      
+        <link rel="next" href="gallery/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/logo/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+    
+    
+      
+        <title>TerraVision</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <link href="assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            .gscrollbar-fixer { padding-right: 15px; }
+            .gdesc-inner { font-size: 0.75rem; }
+            body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color); }
+            body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color); }
+            body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color); }
+        </style></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#terravision" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="TerraVision" class="md-header__button md-logo" aria-label="TerraVision" data-md-component="logo">
+      
+  <img src="assets/logo/terravision-icon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TerraVision
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Home
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to light mode" type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo" aria-label="Switch to dark mode" type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden="">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard="" data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix="">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/patrickchugh/terravision" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    patrickchugh/terravision
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="gallery/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Gallery
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="ai-assistants/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Use with AI assistants
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="draw-any-environment/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Prod without prod access
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="graph-format/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Graph Format (JSON input)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="node-types/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Node types
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="installation/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="annotations/" class="md-tabs__link">
+          
+  
+  
+  Features
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="cloud-architecture-diagram-generator/" class="md-tabs__link">
+          
+  
+  
+  Diagram generators
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="faq/" class="md-tabs__link">
+          
+  
+  
+  Help
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="CONTRIBUTING/" class="md-tabs__link">
+          
+  
+  
+  Contributing
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="demo-aws.html" class="md-tabs__link">
+          
+  
+  
+  Live Demos
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden="">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="TerraVision" class="md-nav__button md-logo" aria-label="TerraVision" data-md-component="logo">
+      
+  <img src="assets/logo/terravision-icon.svg" alt="logo">
+
+    </a>
+    TerraVision
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/patrickchugh/terravision" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+  </div>
+  <div class="md-source__repository">
+    patrickchugh/terravision
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix="">
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#gallery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gallery
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-started-with-your-ai-assistant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get started with your AI assistant
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#watch-the-90-second-intro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Watch the 90-Second Intro
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Watch the 90-Second Intro">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-4-minute-walkthrough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The 4-Minute Walkthrough
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-json-or-terraform-architecture-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From JSON or Terraform → Architecture Diagram
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-terravision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why TerraVision?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-cloud-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supported Cloud Providers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start-the-command-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick start: the command line
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick start: the command line">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-from-json-no-terraform-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram from JSON (no Terraform needed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-from-terraform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram from Terraform
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-the-interactive-demos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Try the Interactive Demos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Support
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="gallery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gallery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ai-assistants/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Use with AI assistants
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="draw-any-environment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Prod without prod access
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="graph-format/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graph Format (JSON input)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="node-types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Node types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7">
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="usage-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Usage Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8">
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Features
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="annotations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Annotations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cicd-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI/CD Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mcp-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP Server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://patrickchugh.github.io/terravision/llms.txt" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    llms.txt for AI agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9">
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diagram generators
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Diagram generators
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cloud-architecture-diagram-generator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud architecture diagram generator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ai-cloud-architecture-diagram-generator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI diagram generator (description to diagram)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="diagram-to-terraform/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Diagram to Terraform
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="aws-architecture-diagram-generator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS diagram generator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="azure-architecture-diagram-generator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Azure diagram generator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="gcp-architecture-diagram-generator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Google Cloud diagram generator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="terraform-diagram-generator/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terraform diagram generator
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="alternatives/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compared with other tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10">
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Help
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Help
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_11">
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Contributing
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="CONTRIBUTING/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="SECURITY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="developer-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Developer Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="resource-handler-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resource Handler Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="constitution/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Constitution
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_12">
+        
+          
+          <label class="md-nav__link" for="__nav_12" id="__nav_12_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Live Demos
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Live Demos
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix="">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demo-aws.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS Demo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demo-azure.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Azure Demo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="demo-gcp.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GCP Demo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden="">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+      
+        <li class="md-nav__item">
+  <a href="#gallery" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gallery
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-started-with-your-ai-assistant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get started with your AI assistant
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#watch-the-90-second-intro" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Watch the 90-Second Intro
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Watch the 90-Second Intro">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-4-minute-walkthrough" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The 4-Minute Walkthrough
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#from-json-or-terraform-architecture-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        From JSON or Terraform → Architecture Diagram
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-terravision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why TerraVision?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#supported-cloud-providers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supported Cloud Providers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start-the-command-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick start: the command line
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quick start: the command line">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#diagram-from-json-no-terraform-needed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram from JSON (no Terraform needed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#diagram-from-terraform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagram from Terraform
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#try-the-interactive-demos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Try the Interactive Demos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Support
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+  
+    <a href="https://github.com/patrickchugh/terravision/edit/main/docs/index.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+    </a>
+  
+  
+
+
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="assets/logo/terravision-icon.svg" data-desc-position="bottom"><img src="assets/logo/terravision-icon.svg" alt="" width="96" align="right"></a></p>
+<h1 id="terravision">TerraVision<a class="headerlink" href="#terravision" title="Permanent link">¶</a></h1>
+<p><strong>Turn Terraform or JSON into professional cloud architecture diagrams in official AWS, Azure and GCP style</strong></p>
+<p><a href="https://github.com/patrickchugh/terravision/actions/workflows/lint-and-test.yml"><img alt="pytest" src="https://img.shields.io/github/actions/workflow/status/patrickchugh/terravision/lint-and-test.yml?branch=main&amp;label=pytest&amp;logo=pytest&amp;logoColor=white&amp;style=flat-square"></a>
+<a href="https://github.com/patrickchugh/terravision/actions/workflows/security.yml"><img alt="CodeQL" src="https://img.shields.io/github/check-runs/patrickchugh/terravision/main?nameFilter=CodeQL%20%28python%29&amp;label=CodeQL&amp;logo=github&amp;style=flat-square"></a>
+<a href="https://github.com/patrickchugh/terravision/actions/workflows/security.yml"><img alt="Ruff security rules" src="https://img.shields.io/github/check-runs/patrickchugh/terravision/main?nameFilter=Python%20security%20rules%20%28ruff%29&amp;label=Ruff%20security&amp;logo=ruff&amp;style=flat-square"></a>
+<a href="https://github.com/patrickchugh/terravision/actions/workflows/security.yml"><img alt="pip-audit" src="https://img.shields.io/github/check-runs/patrickchugh/terravision/main?nameFilter=Dependency%20vulnerabilities%20%28pip-audit%29&amp;label=pip-audit&amp;logo=python&amp;logoColor=white&amp;style=flat-square"></a>
+<a href="https://sonarcloud.io/summary/overall?id=patrickchugh_terravision"><img alt="SonarQube quality gate" src="https://img.shields.io/sonar/quality_gate/patrickchugh_terravision?server=https%3A%2F%2Fsonarcloud.io&amp;label=SonarQube%20quality%20gate&amp;logo=sonarqubecloud&amp;style=flat-square"></a>
+<a href="https://sonarcloud.io/project/issues?id=patrickchugh_terravision&amp;types=VULNERABILITY"><img alt="SonarQube vulnerabilities" src="https://img.shields.io/sonar/vulnerabilities/patrickchugh_terravision?server=https%3A%2F%2Fsonarcloud.io&amp;label=SonarQube%20vulnerabilities&amp;logo=sonarqubecloud&amp;style=flat-square"></a>
+<a href="https://sonarcloud.io/component_measures?id=patrickchugh_terravision&amp;metric=coverage"><img alt="SonarQube coverage" src="https://img.shields.io/sonar/coverage/patrickchugh_terravision?server=https%3A%2F%2Fsonarcloud.io&amp;label=SonarQube%20coverage&amp;logo=sonarqubecloud&amp;style=flat-square"></a></p>
+<p><a href="https://pypi.org/project/terravision/"><img alt="PyPI version" src="https://img.shields.io/pypi/v/terravision?style=flat-square"></a>
+<a href="https://pypi.org/project/terravision/"><img alt="PyPI downloads" src="https://img.shields.io/pypi/dm/terravision?style=flat-square"></a>
+<a href="https://github.com/patrickchugh/terravision/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/patrickchugh/terravision?style=flat-square"></a>
+<a href="https://github.com/patrickchugh/terravision/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/patrickchugh/terravision?style=flat-square"></a></p>
+<p>Ask your AI assistant for a cloud architecture diagram, in plain words, and get the diagram a cloud architect would draw: the official AWS, Azure and GCP icons, with every resource in its VPC, subnet, zone or resource group. From a description, from your Terraform code, or the other way round, with the Terraform written from the diagram. TerraVision runs on your own computer and needs no cloud access.</p>
+<div class="admonition tip">
+<p class="admonition-title">Draw prod without prod access.</p>
+<p>TerraVision draws what your Terraform <em>will</em> deploy, from the code alone. The infrastructure doesn't have to exist yet, and you need no access to any account it deploys to. Live cloud scanners can't do that. <strong><a href="draw-any-environment/">See how →</a></strong></p>
+</div>
+<hr>
+<h2 id="gallery">Gallery<a class="headerlink" href="#gallery" title="Permanent link">¶</a></h2>
+<p><a href="gallery/#aws-three-tier-web-application-architecture-diagram"><img alt="AWS three-tier web application architecture diagram" class="no-lightbox" src="https://raw.githubusercontent.com/patrickchugh/terravision/main/images/gallery/three-tier-web.png" width="32%"></a>
+<a href="gallery/#azure-three-tier-web-application-architecture-diagram"><img alt="Azure three-tier web application architecture diagram" class="no-lightbox" src="https://raw.githubusercontent.com/patrickchugh/terravision/main/images/gallery/azure-three-tier.png" width="32%"></a>
+<a href="gallery/#google-cloud-three-tier-web-application-architecture-diagram"><img alt="Google Cloud three-tier web application architecture diagram" class="no-lightbox" src="https://raw.githubusercontent.com/patrickchugh/terravision/main/images/gallery/gcp-three-tier.png" width="32%"></a>
+<a href="gallery/#amazon-eks-karpenter-architecture-diagram"><img alt="Amazon EKS with Karpenter architecture diagram" class="no-lightbox" src="https://raw.githubusercontent.com/patrickchugh/terravision/main/images/gallery/aws-eks-karpenter.png" width="32%"></a>
+<a href="gallery/#azure-hub-and-spoke-architecture-diagram"><img alt="Azure hub-and-spoke network architecture diagram" class="no-lightbox" src="https://raw.githubusercontent.com/patrickchugh/terravision/main/images/gallery/azure-hub-spoke.png" width="32%"></a>
+<a href="gallery/#google-cloud-gke-architecture-diagram"><img alt="Google Cloud GKE microservices architecture diagram" class="no-lightbox" src="https://raw.githubusercontent.com/patrickchugh/terravision/main/images/gallery/gcp-gke.png" width="32%"></a></p>
+<p>Real output for AWS, Azure and Google Cloud, each with its prompt and source file: <strong><a href="gallery/">see them all in the gallery</a></strong>.</p>
+<hr>
+<h2 id="get-started-with-your-ai-assistant">Get started with your AI assistant<a class="headerlink" href="#get-started-with-your-ai-assistant" title="Permanent link">¶</a></h2>
+<p>Ask Claude, Codex, Gemini or Copilot for a cloud architecture diagram (or the code for one) in plain English, and TerraVision draws it with the official icons:</p>
+<table>
+<thead>
+<tr>
+<th>You have</th>
+<th>Ask something like</th>
+<th>You get</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>An idea</td>
+<td><em>"Draw an AWS three-tier app: React on CloudFront, ECS Fargate behind an ALB in two AZs, SQL Server on RDS Multi-AZ"</em></td>
+<td>The diagram (PNG, SVG, editable draw.io) and its graph, which you can refine by asking: <em>"add ElastiCache"</em>, <em>"show how a request flows through it"</em></td>
+</tr>
+<tr>
+<td>A diagram you like generated from TerraVision</td>
+<td><em>"Write the Terraform for this architecture"</em></td>
+<td>Terraform for the resources, zones and connections, with the diagram's flows and labels kept (quality depends on model used)</td>
+</tr>
+<tr>
+<td>Terraform code, local or on GitHub but no VERIFIED diagram</td>
+<td><em>"Draw the architecture of the Terraform in ./infra"</em> or <em>"Show me a cloud architecture diagram of https://github.com/patrickchugh/testcase-bastion//examples"</em></td>
+<td>A diagram of what <code>terraform plan</code> says the code deploys</td>
+</tr>
+<tr>
+<td>A TerraVision diagram of your Terraform that you want to publish in HTML documentation, or review resource by resource, for example in a security audit</td>
+<td><em>"Make this diagram interactive"</em> or <em>"Give me an interactive version I can click through"</em></td>
+<td>A single HTML page that works in any browser or docs site, no server needed: click any resource to see its settings (encryption, public access, ports, IAM), search and zoom. Built from <code>terraform plan</code>, so it needs the Terraform, not just a picture</td>
+</tr>
+<tr>
+<td>Terraform with an existing TerraVision diagram in a repository</td>
+<td><em>"Keep this diagram up to date in CI"</em></td>
+<td>A workflow that redraws the diagram whenever the Terraform changes</td>
+</tr>
+</tbody>
+</table>
+<p>Install Graphviz and Git once (plus uv, except for Claude Desktop on Windows and macOS), then connect your assistant: one command in Claude Code, Codex CLI and Antigravity CLI, or one download for Claude Desktop, where the diagram appears right in the chat. Step-by-step for macOS, Windows and Linux: <strong><a href="ai-assistants/">Use TerraVision with AI assistants</a></strong>.</p>
+<p>For DevOps teams: the <a href="cicd-integration/">GitHub Action and CI/CD setups</a> redraw the diagram whenever the Terraform changes.</p>
+<p>New here? Designing something new: <a href="ai-cloud-architecture-diagram-generator/">AI cloud architecture diagram generator</a> and <a href="diagram-to-terraform/">diagram to Terraform</a>. Documenting existing code: <a href="terraform-diagram-generator/">Terraform diagram generator</a>. See also the <a href="cloud-architecture-diagram-generator/">cloud architecture diagram generator</a> overview, the <a href="aws-architecture-diagram-generator/">AWS</a>, <a href="azure-architecture-diagram-generator/">Azure</a> and <a href="gcp-architecture-diagram-generator/">Google Cloud</a> generators, or see <a href="alternatives/">how TerraVision compares with Eraser, Mermaid and other tools</a>.</p>
+<hr>
+<h2 id="watch-the-90-second-intro">Watch the 90-Second Intro<a class="headerlink" href="#watch-the-90-second-intro" title="Permanent link">¶</a></h2>
+<p><iframe src="https://www.youtube-nocookie.com/embed/BbXWR-v_Dl0" style="width: 100%; max-width: 800px; aspect-ratio: 16 / 9; display: block; margin: 0 auto; border: 0;" title="TerraVision extension for Claude and ChatGPT" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+</p>
+<h3 id="the-4-minute-walkthrough">The 4-Minute Walkthrough<a class="headerlink" href="#the-4-minute-walkthrough" title="Permanent link">¶</a></h3>
+<p><iframe src="https://www.youtube-nocookie.com/embed/bTrWHBI2mF4" style="width: 100%; max-width: 800px; aspect-ratio: 16 / 9; display: block; margin: 0 auto; border: 0;" title="TerraVision introduction" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+</iframe>
+</p>
+<hr>
+<h2 id="from-json-or-terraform-architecture-diagram">From JSON or Terraform → Architecture Diagram<a class="headerlink" href="#from-json-or-terraform-architecture-diagram" title="Permanent link">¶</a></h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><input id="__tabbed_1_5" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Input: JSON graph</label><label for="__tabbed_1_2">Input: Terraform</label><label for="__tabbed_1_3">Output: AWS</label><label for="__tabbed_1_4">Output: Azure</label><label for="__tabbed_1_5">Output: GCP</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>No Terraform needed: each key is <code>&lt;terraform_resource_type&gt;.&lt;name&gt;</code>, each value is what it connects to or contains. See the <a href="graph-format/">Graph Format</a>.</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">"tv_aws_users.users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"aws_cloudfront_distribution.cdn"</span><span class="p">],</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nt">"aws_cloudfront_distribution.cdn"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"aws_s3_bucket.static_assets"</span><span class="p">,</span><span class="w"> </span><span class="s2">"aws_alb.web_alb~1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"aws_alb.web_alb~2"</span><span class="p">],</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="nt">"aws_s3_bucket.static_assets"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nt">"aws_vpc.main"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"tv_aws_az.us_east_1a"</span><span class="p">,</span><span class="w"> </span><span class="s2">"tv_aws_az.us_east_1b"</span><span class="p">,</span><span class="w"> </span><span class="s2">"aws_internet_gateway.igw"</span><span class="p">],</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="nt">"tv_aws_az.us_east_1a"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"aws_subnet.public~1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"aws_subnet.private~1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"aws_subnet.data~1"</span><span class="p">],</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="nt">"tv_aws_az.us_east_1b"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"aws_subnet.public~2"</span><span class="p">,</span><span class="w"> </span><span class="s2">"aws_subnet.private~2"</span><span class="p">,</span><span class="w"> </span><span class="s2">"aws_subnet.data~2"</span><span class="p">],</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="nt">"aws_subnet.public~1"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"aws_alb.web_alb~1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"aws_nat_gateway.nat~1"</span><span class="p">],</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="nt">"aws_subnet.public~2"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"aws_alb.web_alb~2"</span><span class="p">,</span><span class="w"> </span><span class="s2">"aws_nat_gateway.nat~2"</span><span class="p">],</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="nt">"aws_subnet.private~1"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"aws_instance.app~1"</span><span class="p">],</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="nt">"aws_subnet.private~2"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"aws_instance.app~2"</span><span class="p">],</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="nt">"aws_subnet.data~1"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"aws_db_instance.postgres~1"</span><span class="p">],</span>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">  </span><span class="nt">"aws_subnet.data~2"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"aws_db_instance.postgres~2"</span><span class="p">],</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="nt">"aws_alb.web_alb~1"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"aws_instance.app~1"</span><span class="p">],</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">  </span><span class="nt">"aws_alb.web_alb~2"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"aws_instance.app~2"</span><span class="p">],</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="nt">"aws_instance.app~1"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"aws_db_instance.postgres~1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"aws_elasticache_cluster.sessions"</span><span class="p">],</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">  </span><span class="nt">"aws_instance.app~2"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"aws_db_instance.postgres~1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"aws_elasticache_cluster.sessions"</span><span class="p">],</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">  </span><span class="nt">"aws_db_instance.postgres~1"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"aws_db_instance.postgres~2"</span><span class="p">],</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">  </span><span class="nt">"aws_db_instance.postgres~2"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">  </span><span class="nt">"aws_elasticache_cluster.sessions"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">  </span><span class="nt">"aws_nat_gateway.nat~1"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"aws_internet_gateway.igw"</span><span class="p">],</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">  </span><span class="nt">"aws_nat_gateway.nat~2"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"aws_internet_gateway.igw"</span><span class="p">],</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">  </span><span class="nt">"aws_internet_gateway.igw"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"tv_aws_internet.internet"</span><span class="p">]</span>
+</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-hcl highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Excerpt from WordPress on ECS Fargate (the AWS output tab)</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="c1"># Full source: https://github.com/patrickchugh/terraform-examples/tree/main/aws/wordpress_fargate</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="kr">module</span><span class="w"> </span><span class="nv">"vpc"</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="na">source</span><span class="w">                 </span><span class="o">=</span><span class="w"> </span><span class="s2">"terraform-aws-modules/vpc/aws"</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="na">cidr</span><span class="w">                   </span><span class="o">=</span><span class="w"> </span><span class="nv">var.vpc_cidr</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="na">azs</span><span class="w">                    </span><span class="o">=</span><span class="w"> </span><span class="nv">data.aws_availability_zones.this.names</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="na">private_subnets</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="nv">var.private_subnet_cidrs</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="na">public_subnets</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="nv">var.public_subnet_cidrs</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="na">enable_nat_gateway</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="no">true</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">  </span><span class="na">single_nat_gateway</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="no">false</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="p">}</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="kr">module</span><span class="w"> </span><span class="nv">"alb"</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">  </span><span class="na">source</span><span class="w">             </span><span class="o">=</span><span class="w"> </span><span class="s2">"terraform-aws-modules/alb/aws"</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">  </span><span class="na">load_balancer_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"application"</span>
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">  </span><span class="na">vpc_id</span><span class="w">             </span><span class="o">=</span><span class="w"> </span><span class="nv">module.vpc.vpc_id</span>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">  </span><span class="na">subnets</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="nv">module.vpc.public_subnets</span>
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="w">  </span><span class="na">security_groups</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nv">aws_security_group.alb.id</span><span class="p">]</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="p">}</span>
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_cloudfront_distribution"</span><span class="w"> </span><span class="nv">"this"</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">  </span><span class="nb">origin</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">    </span><span class="na">domain_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">module.alb.this_lb_dns_name</span>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">    </span><span class="na">origin_id</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s2">"alb"</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="c1">  # ...</span>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="p">}</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_ecs_service"</span><span class="w"> </span><span class="nv">"this"</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="w">  </span><span class="na">cluster</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_ecs_cluster.this.id</span>
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="w">  </span><span class="na">task_definition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_ecs_task_definition.this.arn</span>
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="w">  </span><span class="na">launch_type</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s2">"FARGATE"</span>
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="w">  </span><span class="nb">network_configuration</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="w">    </span><span class="na">security_groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nv">aws_security_group.alb.id</span><span class="p">,</span><span class="w"> </span><span class="nv">aws_security_group.db.id</span><span class="p">,</span><span class="w"> </span><span class="nv">aws_security_group.efs.id</span><span class="p">]</span>
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="w">    </span><span class="na">subnets</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="nv">module.vpc.private_subnets</span>
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="w">  </span><span class="nb">load_balancer</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="w">    </span><span class="na">target_group_arn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_lb_target_group.this.id</span>
+</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a><span class="w">    </span><span class="na">container_name</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="s2">"wordpress"</span>
+</span><span id="__span-1-41"><a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a><span class="w">    </span><span class="na">container_port</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="m">80</span>
+</span><span id="__span-1-42"><a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-1-43"><a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a><span class="p">}</span>
+</span><span id="__span-1-44"><a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a>
+</span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_rds_cluster"</span><span class="w"> </span><span class="nv">"this"</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-46"><a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a><span class="w">  </span><span class="na">engine</span><span class="w">                 </span><span class="o">=</span><span class="w"> </span><span class="s2">"aurora-mysql"</span>
+</span><span id="__span-1-47"><a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a><span class="w">  </span><span class="na">engine_mode</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="s2">"serverless"</span>
+</span><span id="__span-1-48"><a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a><span class="w">  </span><span class="na">vpc_security_group_ids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nv">aws_security_group.db.id</span><span class="p">]</span>
+</span><span id="__span-1-49"><a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a><span class="w">  </span><span class="na">db_subnet_group_name</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_db_subnet_group.this.name</span>
+</span><span id="__span-1-50"><a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a><span class="p">}</span>
+</span><span id="__span-1-51"><a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a>
+</span><span id="__span-1-52"><a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_efs_file_system"</span><span class="w"> </span><span class="nv">"this"</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-1-53"><a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a>
+</span><span id="__span-1-54"><a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a><span class="kr">resource</span><span class="w"> </span><span class="nc">"aws_efs_mount_target"</span><span class="w"> </span><span class="nv">"this"</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-55"><a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a><span class="w">  </span><span class="na">count</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="nv">module.vpc.private_subnets</span><span class="p">)</span>
+</span><span id="__span-1-56"><a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a><span class="w">  </span><span class="na">file_system_id</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="nv">aws_efs_file_system.this.id</span>
+</span><span id="__span-1-57"><a id="__codelineno-1-57" name="__codelineno-1-57" href="#__codelineno-1-57"></a><span class="w">  </span><span class="na">subnet_id</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="nv">module.vpc.private_subnets[count.index</span><span class="p">]</span>
+</span><span id="__span-1-58"><a id="__codelineno-1-58" name="__codelineno-1-58" href="#__codelineno-1-58"></a><span class="w">  </span><span class="na">security_groups</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nv">aws_security_group.efs.id</span><span class="p">]</span>
+</span><span id="__span-1-59"><a id="__codelineno-1-59" name="__codelineno-1-59" href="#__codelineno-1-59"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://raw.githubusercontent.com/patrickchugh/terravision/main/images/architecture.png" data-desc-position="bottom"><img alt="AWS architecture diagram" src="https://raw.githubusercontent.com/patrickchugh/terravision/main/images/architecture.png"></a></p>
+</div>
+<div class="tabbed-block">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://raw.githubusercontent.com/patrickchugh/terravision/main/images/architecture-azure.dot.png" data-desc-position="bottom"><img alt="Azure architecture diagram" src="https://raw.githubusercontent.com/patrickchugh/terravision/main/images/architecture-azure.dot.png"></a></p>
+</div>
+<div class="tabbed-block">
+<p><a class="glightbox" data-type="image" data-width="100%" data-height="auto" href="https://raw.githubusercontent.com/patrickchugh/terravision/main/images/architecture-gcp.dot.png" data-desc-position="bottom"><img alt="GCP architecture diagram" src="https://raw.githubusercontent.com/patrickchugh/terravision/main/images/architecture-gcp.dot.png"></a></p>
+</div>
+</div>
+</div>
+<hr>
+<h2 id="why-terravision">Why TerraVision?<a class="headerlink" href="#why-terravision" title="Permanent link">¶</a></h2>
+<div class="grid cards">
+<ul>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 14h-1c0-3.87-3.13-7-7-7h-1V5.73A2 2 0 1 0 10 4c0 .74.4 1.39 1 1.73V7h-1c-3.87 0-7 3.13-7 7H2c-.55 0-1 .45-1 1v3c0 .55.45 1 1 1h1v1a2 2 0 0 0 2 2h14c1.11 0 2-.89 2-2v-1h1c.55 0 1-.45 1-1v-3c0-.55-.45-1-1-1M9.79 16.5C9.4 15.62 8.53 15 7.5 15s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1m9 0c-.39-.88-1.29-1.5-2.29-1.5s-1.9.62-2.29 1.5c-.13-.31-.21-.64-.21-1a2.5 2.5 0 0 1 5 0c0 .36-.08.69-.21 1"></path></svg></span> <strong>Built for AI assistants</strong></p>
+<hr>
+<p>Marketplace extensions and plugins for Claude, Codex, Gemini, Copilot and Cursor. Diagrams appear right in the chat in Claude Desktop. See the <a href="ai-assistants/">guide</a>.</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m23 12-2.44-2.78.34-3.68-3.61-.82-1.89-3.18L12 3 8.6 1.54 6.71 4.72l-3.61.81.34 3.68L1 12l2.44 2.78-.34 3.69 3.61.82 1.89 3.18L12 21l3.4 1.46 1.89-3.18 3.61-.82-.34-3.68zm-13 5-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9z"></path></svg></span> <strong>Provably Accurate diagrams</strong></p>
+<hr>
+<p>Accurate diagrams generated directly from your Terraform code, so your code is the source of truth: what you see is what you get.</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M11.83 9 15 12.16V12a3 3 0 0 0-3-3zm-4.3.8 1.55 1.55c-.05.21-.08.42-.08.65a3 3 0 0 0 3 3c.22 0 .44-.03.65-.08l1.55 1.55c-.67.33-1.41.53-2.2.53a5 5 0 0 1-5-5c0-.79.2-1.53.53-2.2M2 4.27l2.28 2.28.45.45C3.08 8.3 1.78 10 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.43.42L19.73 22 21 20.73 3.27 3M12 7a5 5 0 0 1 5 5c0 .64-.13 1.26-.36 1.82l2.93 2.93c1.5-1.25 2.7-2.89 3.43-4.75-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-4 .7l2.17 2.15C10.74 7.13 11.35 7 12 7"></path></svg></span> <strong>Draw prod without prod access</strong></p>
+<hr>
+<p>The infrastructure does not need to exist, and you need no access to any account the code deploys to. One codebase draws dev, staging and prod. See <a href="draw-any-environment/">Draw prod without prod access</a>.</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.4 7.5c.8.8.8 2.1 0 2.8l-2.8 2.8-7.8-7.8 2.8-2.8c.8-.8 2.1-.8 2.8 0l1.8 1.8 3-3 1.4 1.4-3 3zm-5.8 5.8-1.4-1.4-2.8 2.8-2.1-2.1 2.8-2.8-1.4-1.4-2.8 2.8-1.5-1.4-2.8 2.8c-.8.8-.8 2.1 0 2.8l1.8 1.8-4 4 1.4 1.4 4-4 1.8 1.8c.8.8 2.1.8 2.8 0l2.8-2.8-1.4-1.4z"></path></svg></span> <strong>MCP server and agent skill</strong></p>
+<hr>
+<p>Let any AI agent, or an assistant in an IDE such as Visual Studio Code, generate diagrams from a JSON graph or your Terraform. See the <a href="mcp-server/">MCP server guide</a>.</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 15a3 3 0 0 1 3 3 3 3 0 0 1-3 3 2.99 2.99 0 0 1-2.83-2H14v-2h1.17c.41-1.17 1.52-2 2.83-2m0 2a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1m0-9a1.43 1.43 0 0 0 1.43-1.43 1.43 1.43 0 1 0-2.86 0A1.43 1.43 0 0 0 18 8m0-5.43a4 4 0 0 1 4 4C22 9.56 18 14 18 14s-4-4.44-4-7.43a4 4 0 0 1 4-4M8.83 17H10v2H8.83A2.99 2.99 0 0 1 6 21a3 3 0 0 1-3-3c0-1.31.83-2.42 2-2.83V14h2v1.17c.85.3 1.53.98 1.83 1.83M6 17a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1M6 3a3 3 0 0 1 3 3c0 1.31-.83 2.42-2 2.83V10H5V8.83A2.99 2.99 0 0 1 3 6a3 3 0 0 1 3-3m0 2a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1m5 14v-2h2v2zm-4-6H5v-2h2z"></path></svg></span> <strong>In Diagram flow annotations</strong></p>
+<hr>
+<p>Labels, titles, and flow sequences supported via YAML or generated by AI models including Ollama (running local) and AWS Bedrock.</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 3h2v2H5v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5h2v2H5c-1.07-.27-2-.9-2-2v-4a2 2 0 0 0-2-2H0v-2h1a2 2 0 0 0 2-2V5a2 2 0 0 1 2-2m14 0a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1v2h-1a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-2v-2h2v-5a2 2 0 0 1 2-2 2 2 0 0 1-2-2V5h-2V3zm-7 12a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m-4 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1m8 0a1 1 0 0 1 1 1 1 1 0 0 1-1 1 1 1 0 0 1-1-1 1 1 0 0 1 1-1"></path></svg></span> <strong>JSON graph input</strong></p>
+<hr>
+<p>Describe an architecture in a few lines of JSON and render it. Resources match Terraform names, so there's no custom DSL to learn. See the <a href="graph-format/">Graph Format</a>.</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 1 3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5zm0 6c1.4 0 2.8 1.1 2.8 2.5V11c.6 0 1.2.6 1.2 1.3v3.5c0 .6-.6 1.2-1.3 1.2H9.2c-.6 0-1.2-.6-1.2-1.3v-3.5c0-.6.6-1.2 1.2-1.2V9.5C9.2 8.1 10.6 7 12 7m0 1.2c-.8 0-1.5.5-1.5 1.3V11h3V9.5c0-.8-.7-1.3-1.5-1.3"></path></svg></span> <strong>100% client-side</strong></p>
+<hr>
+<p>Designed with security in mind. No cloud access required, runs locally, and your code never leaves your machine.</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 14h-2v2h-6v-3h2v-2h-2V6a2 2 0 0 0-2-2H4V2H2v8h2V8h6v3H8v2h2v5a2 2 0 0 0 2 2h8v2h2"></path></svg></span> <strong>CI/CD ready</strong></p>
+<hr>
+<p>Automate diagram updates on every PR merge. Works with GitHub Actions, GitLab, Jenkins, Azure DevOps.</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.41 22h-.19a.46.46 0 0 1-.26-.27l-2.22-5.8c-.09-.24.03-.51.26-.61.71-.26 1.28-.82 1.58-1.49.64-1.43 0-3.1-1.43-3.74s-3.1 0-3.74 1.41c-.3.71-.32 1.5-.05 2.19.3.74.89 1.31 1.64 1.59.24.09.37.36.28.61L9 21.69c-.04.12-.13.22-.25.27-.12.04-.25.04-.36 0C3.24 19.97.67 14.18 2.66 9.03s7.78-7.72 12.93-5.73c2.47.96 4.46 2.85 5.54 5.27a9.9 9.9 0 0 1 .2 7.65c-1.01 2.66-3.1 4.78-5.75 5.78zM12 3.59c-4.97-.13-9.1 3.8-9.23 8.77a9.01 9.01 0 0 0 5.55 8.54l1.89-4.9c-1.83-1-2.52-3.28-1.53-5.11a3.784 3.784 0 0 1 5.11-1.53 3.775 3.775 0 0 1 0 6.64l1.89 4.93a9.11 9.11 0 0 0 4.76-5c1.84-4.62-.4-9.85-5.02-11.7A9.1 9.1 0 0 0 12 3.59"></path></svg></span> <strong>Free &amp; open source</strong></p>
+<hr>
+<p>No expensive diagramming tool licenses.</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M6.5 20q-2.28 0-3.89-1.57Q1 16.85 1 14.58q0-1.95 1.17-3.48 1.18-1.53 3.08-1.95.63-2.3 2.5-3.72Q9.63 4 12 4q2.93 0 4.96 2.04Q19 8.07 19 11q1.73.2 2.86 1.5 1.14 1.28 1.14 3 0 1.88-1.31 3.19T18.5 20Z"></path></svg></span> <strong>Multi-cloud</strong></p>
+<hr>
+<p>AWS, Google Cloud (GCP) and Azure supported.</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.76 8.69a.76.76 0 0 0-.76.76V20.9c0 .42.34.76.76.76.19 0 .35-.06.48-.16l1.91-1.55 1.66 3.62c.13.27.4.43.69.43.11 0 .22 0 .33-.08l2.76-1.28c.38-.18.56-.64.36-1.01L17.28 18l2.41-.45a.9.9 0 0 0 .43-.26c.27-.32.23-.79-.12-1.08l-8.74-7.35-.01.01a.76.76 0 0 0-.49-.18M15 10V8h5v2zm-1.17-5.24 2.83-2.83 1.41 1.41-2.83 2.83zM10 0h2v5h-2zM3.93 14.66l2.83-2.83 1.41 1.41-2.83 2.83zm0-11.32 1.41-1.41 2.83 2.83-1.41 1.41zM7 10H2V8h5z"></path></svg></span> <strong>Interactive HTML</strong></p>
+<hr>
+<p><code>terravision visualise</code> produces a self-contained HTML with clickable nodes, search, and animated data flow.</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75z"></path></svg></span> <strong>Editable draw.io</strong></p>
+<hr>
+<p>Export to <code>.drawio</code> and open in draw.io, Lucidchart, or any mxGraph editor.</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M7 3a3 3 0 0 1 3 3c0 1.29-.81 2.39-1.96 2.81.54 5 5.04 5.96 7.15 6.15A2.985 2.985 0 0 1 18 13a3 3 0 0 1 3 3 3 3 0 0 1-3 3c-1.31 0-2.43-.84-2.84-2-4.25-.2-5.72-1.81-7.16-3.61v1.78c1.17.41 2 1.52 2 2.83a3 3 0 0 1-3 3 3 3 0 0 1-3-3c0-1.31.83-2.42 2-2.83V8.83A2.99 2.99 0 0 1 4 6a3 3 0 0 1 3-3m0 2a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1m0 12a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1m11-2a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1"></path></svg></span> <strong>Terragrunt compatible</strong></p>
+<hr>
+<p>Auto-detects single- and multi-module Terragrunt projects. No extra flags needed.</p>
+</li>
+</ul>
+</div>
+<hr>
+<h2 id="supported-cloud-providers">Supported Cloud Providers<a class="headerlink" href="#supported-cloud-providers" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Provider</th>
+<th>Status</th>
+<th>Resource types</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AWS</strong></td>
+<td>✅ Full support</td>
+<td>427 types</td>
+</tr>
+<tr>
+<td><strong>Google Cloud</strong></td>
+<td>✅ Full support</td>
+<td>267 types</td>
+</tr>
+<tr>
+<td><strong>Azure</strong></td>
+<td>✅ Full support</td>
+<td>263 types</td>
+</tr>
+</tbody>
+</table>
+<p>Every supported resource type is listed on the <a href="node-types/">Node types</a> page. Types without an icon still appear on the diagram as a generic node, and the run prints which ones so an icon can be added.</p>
+<hr>
+<h2 id="quick-start-the-command-line">Quick start: the command line<a class="headerlink" href="#quick-start-the-command-line" title="Permanent link">¶</a></h2>
+<p>Install with pipx, uv or pip:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>pipx<span class="w"> </span>install<span class="w"> </span>terravision<span class="w">   </span><span class="c1"># or: uv tool install terravision</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">                           </span><span class="c1"># or: pip install terravision in a virtual env</span>
+</span></code></pre></div>
+<p>TerraVision needs <strong>Python 3.11+</strong> (uv installs one for you), <strong>Graphviz</strong> and <strong>Git</strong>. <strong>Terraform 1.x</strong> (or OpenTofu) is only needed when drawing from Terraform code.</p>
+<h3 id="diagram-from-json-no-terraform-needed">Diagram from JSON (no Terraform needed)<a class="headerlink" href="#diagram-from-json-no-terraform-needed" title="Permanent link">¶</a></h3>
+<p>Describe the architecture as nodes and connections, and save it as <code>architecture.tvg.json</code>:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">AWS</label><label for="__tabbed_2_2">Azure</label><label for="__tabbed_2_3">GCP</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-json highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">"tv_aws_users.users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"aws_cloudfront_distribution.cdn"</span><span class="p">],</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">"aws_cloudfront_distribution.cdn"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"aws_s3_bucket.static_site"</span><span class="p">,</span><span class="w"> </span><span class="s2">"aws_alb.api"</span><span class="p">],</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">"aws_vpc.main"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"aws_subnet.public~1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"aws_subnet.private~1"</span><span class="p">],</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nt">"aws_subnet.public~1"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"aws_alb.api"</span><span class="p">],</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="nt">"aws_subnet.private~1"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"aws_lambda_function.orders"</span><span class="p">],</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="nt">"aws_alb.api"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"aws_lambda_function.orders"</span><span class="p">],</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="nt">"aws_lambda_function.orders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"aws_dynamodb_table.orders"</span><span class="p">,</span><span class="w"> </span><span class="s2">"aws_sqs_queue.events"</span><span class="p">]</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-json highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="nt">"tv_azurerm_users.users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"azurerm_cdn_frontdoor_profile.edge"</span><span class="p">],</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="nt">"azurerm_cdn_frontdoor_profile.edge"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"azurerm_linux_web_app.api"</span><span class="p">],</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="nt">"azurerm_resource_group.app"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"azurerm_virtual_network.main"</span><span class="p">,</span><span class="w"> </span><span class="s2">"azurerm_mssql_database.orders"</span><span class="p">,</span><span class="w"> </span><span class="s2">"azurerm_servicebus_queue.events"</span><span class="p">,</span><span class="w"> </span><span class="s2">"azurerm_key_vault.secrets"</span><span class="p">],</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="nt">"azurerm_virtual_network.main"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"azurerm_subnet.app"</span><span class="p">],</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="nt">"azurerm_subnet.app"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"azurerm_linux_web_app.api"</span><span class="p">],</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span><span class="nt">"azurerm_linux_web_app.api"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"azurerm_mssql_database.orders"</span><span class="p">,</span><span class="w"> </span><span class="s2">"azurerm_servicebus_queue.events"</span><span class="p">,</span><span class="w"> </span><span class="s2">"azurerm_key_vault.secrets"</span><span class="p">]</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-json highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">"tv_gcp_users_icon.users"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"google_compute_global_forwarding_rule.lb"</span><span class="p">],</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nt">"google_compute_global_forwarding_rule.lb"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"google_cloud_run_v2_service.api"</span><span class="p">],</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nt">"google_cloud_run_v2_service.api"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"google_sql_database_instance.orders"</span><span class="p">,</span><span class="w"> </span><span class="s2">"google_pubsub_topic.events"</span><span class="p">,</span><span class="w"> </span><span class="s2">"google_storage_bucket.assets"</span><span class="p">],</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="nt">"google_pubsub_topic.events"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"google_cloudfunctions2_function.worker"</span><span class="p">]</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<p>Render it:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>terravision<span class="w"> </span>draw<span class="w"> </span>--source<span class="w"> </span>architecture.tvg.json<span class="w"> </span>--format<span class="w"> </span>svg
+</span></code></pre></div>
+<p>Each key is <code>&lt;terraform_resource_type&gt;.&lt;name&gt;</code>; each value is what it connects to or contains. That is the whole format. The <a href="graph-format/">Graph Format</a> page has the full rules, the JSON Schema and larger examples, and <a href="node-types/">Node types</a> lists every icon.</p>
+<p><strong>Using an AI assistant?</strong> It can write this JSON for you: see <a href="ai-assistants/">Use TerraVision with AI assistants</a>. For agents reading docs, <a href="llms.txt">llms.txt</a> is a plain-text index of the docs, and <a href="llms-full.txt">llms-full.txt</a> adds the full node-type reference.</p>
+<h3 id="diagram-from-terraform">Diagram from Terraform<a class="headerlink" href="#diagram-from-terraform" title="Permanent link">¶</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>terravision<span class="w"> </span>draw<span class="w"> </span>--source<span class="w"> </span>./path-to-your-terraform<span class="w"> </span>--show
+</span></code></pre></div>
+<p>The diagram is derived from <code>terraform plan</code>, so it shows what the code actually deploys: conditionals, <code>count</code>, <code>for_each</code> and modules are resolved.</p>
+<p>Add a variables file to draw a particular environment. Nothing needs to be deployed, and you need no access to the account it deploys to:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>terravision<span class="w"> </span>draw<span class="w"> </span>--source<span class="w"> </span>./path-to-your-terraform<span class="w"> </span>--varfile<span class="w"> </span>prod.tfvars<span class="w"> </span>--outfile<span class="w"> </span>architecture-prod
+</span></code></pre></div>
+<p>See <a href="draw-any-environment/">Draw prod without prod access</a>.</p>
+<p>Or try the interactive HTML output:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>terravision<span class="w"> </span>visualise<span class="w"> </span>--source<span class="w"> </span>./path-to-your-terraform<span class="w"> </span>--show
+</span></code></pre></div>
+<p>See the <a href="installation/">Installation Guide</a> for Docker, Nix, and platform-specific instructions, or jump straight into the <a href="usage-guide/">Usage Guide</a>.</p>
+<hr>
+<h2 id="try-the-interactive-demos">Try the Interactive Demos<a class="headerlink" href="#try-the-interactive-demos" title="Permanent link">¶</a></h2>
+<p>These are real outputs of <code>terravision visualise</code> — click any node to see its metadata, use the search box, and pan/zoom around.</p>
+<div class="grid cards">
+<ul>
+<li>
+<p>🟧 <strong><a href="demo-aws.html">AWS demo</a></strong></p>
+<hr>
+<p>Wordpress on ECS Fargate with CloudFront, RDS, and EFS.</p>
+</li>
+<li>
+<p>🟦 <strong><a href="demo-azure.html">Azure demo</a></strong></p>
+<hr>
+<p>VM scale set with load balancer and VNet topology.</p>
+</li>
+<li>
+<p>🟩 <strong><a href="demo-gcp.html">GCP demo</a></strong></p>
+<hr>
+<p>Core GCP networking and compute.</p>
+</li>
+</ul>
+</div>
+<hr>
+<h2 id="documentation">Documentation<a class="headerlink" href="#documentation" title="Permanent link">¶</a></h2>
+<div class="grid cards">
+<ul>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"></path></svg></span> <strong><a href="installation/">Installation</a></strong></p>
+<hr>
+<p>Install via pip, Docker, or Nix. Platform-specific instructions for all dependencies.</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 12h7v1.5h-7m0-4h7V11h-7m0 3.5h7V16h-7m8-12H3a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2m0 15h-9V6h9"></path></svg></span> <strong><a href="usage-guide/">Usage Guide</a></strong></p>
+<hr>
+<p>All commands, options, output formats, and advanced usage patterns.</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m21.41 11.58-9-9A2 2 0 0 0 11 2H4a2 2 0 0 0-2 2v7a2 2 0 0 0 .59 1.41l9 9A2 2 0 0 0 13 22a2 2 0 0 0 1.41-.59l7-7A2 2 0 0 0 22 13a2 2 0 0 0-.59-1.42M6.5 8A1.5 1.5 0 1 1 8 6.5 1.5 1.5 0 0 1 6.5 8m5.09 7.41-4-4L9 10l4 4m2.59.41-5.5-5.5L11.5 7.5 17 13Z"></path></svg></span> <strong><a href="annotations/">Annotations</a></strong></p>
+<hr>
+<p>Customise your diagrams with YAML annotations, flows, and AI suggestions.</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14c-3.36 0-4.46 1.35-4.82 2.24C9.25 16.7 10 17.76 10 19a3 3 0 0 1-3 3 3 3 0 0 1-3-3c0-1.31.83-2.42 2-2.83V7.83A2.99 2.99 0 0 1 4 5a3 3 0 0 1 3-3 3 3 0 0 1 3 3c0 1.31-.83 2.42-2 2.83v5.29c.88-.65 2.16-1.12 4-1.12 2.67 0 3.56-1.34 3.85-2.23A3.01 3.01 0 0 1 14 7a3 3 0 0 1 3-3 3 3 0 0 1 3 3c0 1.34-.88 2.5-2.09 2.86C17.65 11.29 16.68 14 13 14m-6 4a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1M7 4a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1m10 2a1 1 0 0 0-1 1 1 1 0 0 0 1 1 1 1 0 0 0 1-1 1 1 0 0 0-1-1"></path></svg></span> <strong><a href="cicd-integration/">CI/CD Integration</a></strong></p>
+<hr>
+<p>Automate diagrams in GitHub Actions, GitLab, Jenkins, Azure DevOps.</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m15.07 11.25-.9.92C13.45 12.89 13 13.5 13 15h-2v-.5c0-1.11.45-2.11 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41a2 2 0 0 0-2-2 2 2 0 0 0-2 2H8a4 4 0 0 1 4-4 4 4 0 0 1 4 4 3.2 3.2 0 0 1-.93 2.25M13 19h-2v-2h2M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10c0-5.53-4.5-10-10-10"></path></svg></span> <strong><a href="faq/">FAQ</a></strong></p>
+<hr>
+<p>Cloud credentials, drawing environments you can't access, LLM data, offline use, Terragrunt — the most common questions.</p>
+</li>
+<li>
+<p><span class="twemoji lg middle"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m22.7 19-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4"></path></svg></span> <strong><a href="troubleshooting/">Troubleshooting</a></strong></p>
+<hr>
+<p>Common errors and how to fix them.</p>
+</li>
+</ul>
+</div>
+<hr>
+<h2 id="support">Support<a class="headerlink" href="#support" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Issues</strong>: <a href="https://github.com/patrickchugh/terravision/issues">GitHub Issues</a></li>
+<li><strong>Discussions</strong>: <a href="https://github.com/patrickchugh/terravision/discussions">GitHub Discussions</a></li>
+<li><strong>Source code</strong>: <a href="https://github.com/patrickchugh/terravision">github.com/patrickchugh/terravision</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © Patrick Chugh
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/patrickchugh/terravision" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://youtu.be/BbXWR-v_Dl0" target="_blank" rel="noopener" title="youtu.be" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M549.7 124.1c-6.2-23.7-24.8-42.3-48.3-48.6C458.9 64 288.1 64 288.1 64S117.3 64 74.7 75.5c-23.5 6.3-42 24.9-48.3 48.6C15 167 15 256.4 15 256.4s0 89.4 11.4 132.3c6.3 23.6 24.8 41.5 48.3 47.8C117.3 448 288.1 448 288.1 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zM232.2 337.6V175.2l142.7 81.2z"></path></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://pypi.org/project/terravision/" target="_blank" rel="noopener" title="pypi.org" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6M286.2 444.7a20.4 20.4 0 1 1 0-40.7 20.4 20.4 0 1 1 0 40.7M167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4m-6.6-183.4a20.4 20.4 0 1 1 0 40.8 20.4 20.4 0 1 1 0-40.8"></path></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.instant", "navigation.tracking", "toc.follow", "content.code.copy", "content.code.annotate", "content.action.edit", "search.suggest", "search.highlight", "search.share"], "search": "assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  
+<script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(()=>{ lightbox.reload(); });
+</script></body></html>
